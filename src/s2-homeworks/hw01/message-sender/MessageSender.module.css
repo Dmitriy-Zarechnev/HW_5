@@ -1,0 +1,38 @@
+.sendForm {
+    display: flex;
+    gap: 44px;
+}
+
+.textarea {
+    color: black;
+    background-color: #F5F7FB;
+
+    resize: none;
+    height: 45px;
+    width: 100%;
+
+    padding: 12px 24px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.textarea::placeholder {
+    color: rgba(0, 0, 0, 0.60);
+    font-size: 14px;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: #06C;
+    color: #FFF;
+    font-weight: 600;
+    padding: 10px 38px;
+}
+
+.button:hover {
+
+}
+
+.button:active {
+
+}

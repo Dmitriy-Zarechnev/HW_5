@@ -1,0 +1,31 @@
+.radio {
+margin-right: 5px;
+}
+
+
+.radio::before {
+
+}
+
+
+.radio:checked::before {
+
+}
+.radio:checked::before {
+
+}
+
+.label {
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+}

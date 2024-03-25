@@ -1,0 +1,55 @@
+.item {
+
+}
+
+.item:last-of-type {
+
+}
+
+.users {
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-self: flex-end;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+}
+
+.thead {
+    background-color: #E5E5E5;
+}
+
+
+.nameCol {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    padding: 5px;
+
+}
+
+.ageCol {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    padding: 5px;
+
+}
+
+.nameBorder {
+    border-bottom: 2px solid #E5E5E5;
+}
+
+
+.border {
+    border-bottom: 2px solid #E5E5E5;
+    font-weight: 600;
+}
