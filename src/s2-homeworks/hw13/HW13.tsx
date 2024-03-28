@@ -43,6 +43,7 @@ const HW13 = () => {
                 auxiliaryFunction(
                     'Код 200!',
                     success200,
+                    res.data.errorText,
                     res.data.info)
 
                 // дописать
@@ -54,12 +55,14 @@ const HW13 = () => {
                         auxiliaryFunction(
                             'Код 500!',
                             error500,
+                            e.response.data.errorText,
                             e.response.data.info)
                         break
                     case 400:
                         auxiliaryFunction(
                             'Код 400!',
                             error400,
+                            e.response.data.errorText,
                             e.response.data.info)
                         break
                     default:
@@ -82,7 +85,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        disabled={info !== ''}
+                        disabled={info ==='...loading'}
                         // дописать
 
                     >
@@ -92,7 +95,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        disabled={info !== ''}
+                        disabled={info ==='...loading'}
                         // дописать
 
                     >
@@ -102,7 +105,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        disabled={info !== ''}
+                        disabled={info ==='...loading'}
                         // дописать
 
                     >
@@ -112,7 +115,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        disabled={info !== ''}
+                        disabled={info ==='...loading'}
                         // дописать
 
                     >
