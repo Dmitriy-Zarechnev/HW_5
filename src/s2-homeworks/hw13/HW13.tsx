@@ -38,11 +38,11 @@ const HW13 = () => {
 
         axios
             .post(url, {success: x})
-            .then(() => {
+            .then((res) => {
                 auxiliaryFunction(
                     'Код 200!',
                     success200,
-                    'код 200 - обычно означает что скорее всего всё ок')
+                    res.data.errorText)
 
                 // дописать
 
@@ -53,19 +53,19 @@ const HW13 = () => {
                         auxiliaryFunction(
                             'Код 500!',
                             error500,
-                            'ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных')
+                            e.response.data.errorText)
                         break
                     case 400:
                         auxiliaryFunction(
                             'Код 400!',
                             error400,
-                            'ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
+                            e.response.data.errorText)
                         break
                     default:
                         auxiliaryFunction(
                             'Error!',
                             error,
-                            'Network Error\n' + 'AxiosError')
+                            e.message)
                 }
                 // дописать
             })
