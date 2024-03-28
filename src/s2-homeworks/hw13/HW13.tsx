@@ -20,24 +20,29 @@ const HW13 = () => {
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
 
+    const auxiliaryFunction = (code: string, image: string, text: string, info: string = '') => {
+        setCode(code)
+        setImage(image)
+        setText(text)
+        setInfo(info)
+    }
+
+
     const send = (x?: boolean | null) => () => {
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
                 : 'https://samurai.it-incubator.io/api/3.0/homework/test'
 
-        setCode('')
-        setImage('')
-        setText('')
-        setInfo('...loading')
+        auxiliaryFunction('', '', '', '...loading')
 
         axios
             .post(url, {success: x})
-            .then((res) => {
-                setCode('Код 200!')
-                setImage(success200)
-                setText('код 200 - обычно означает что скорее всего всё ок')
-                setInfo('')
+            .then(() => {
+                auxiliaryFunction(
+                    'Код 200!',
+                    success200,
+                    'код 200 - обычно означает что скорее всего всё ок')
 
                 // дописать
 
@@ -45,22 +50,22 @@ const HW13 = () => {
             .catch((e) => {
                 switch (e.response.status) {
                     case 500:
-                        setCode('Код 500!')
-                        setImage(error500)
-                        setText('ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных')
-                        setInfo('')
+                        auxiliaryFunction(
+                            'Код 500!',
+                            error500,
+                            'ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных')
                         break
                     case 400:
-                        setCode('Код 400!')
-                        setImage(error400)
-                        setText('ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
-                        setInfo('')
+                        auxiliaryFunction(
+                            'Код 400!',
+                            error400,
+                            'ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
                         break
                     default:
-                        setCode('Error!')
-                        setImage(error)
-                        setText('Network Error\n' + 'AxiosError')
-                        setInfo('')
+                        auxiliaryFunction(
+                            'Error!',
+                            error,
+                            'Network Error\n' + 'AxiosError')
                 }
                 // дописать
             })
