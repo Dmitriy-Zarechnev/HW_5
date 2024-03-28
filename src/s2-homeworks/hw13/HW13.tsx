@@ -39,10 +39,11 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
+                console.log(res)
                 auxiliaryFunction(
                     'Код 200!',
                     success200,
-                    res.data.errorText)
+                    res.data.info)
 
                 // дописать
 
@@ -53,13 +54,13 @@ const HW13 = () => {
                         auxiliaryFunction(
                             'Код 500!',
                             error500,
-                            e.response.data.errorText)
+                            e.response.data.info)
                         break
                     case 400:
                         auxiliaryFunction(
                             'Код 400!',
                             error400,
-                            e.response.data.errorText)
+                            e.response.data.info)
                         break
                     default:
                         auxiliaryFunction(
