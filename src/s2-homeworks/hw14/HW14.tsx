@@ -45,7 +45,7 @@ const HW14 = () => {
                 // сохранить пришедшие данные
 
                 //
-                setFind('')
+                //setFind('')
                 setLoading(false)
             })
 
@@ -55,7 +55,7 @@ const HW14 = () => {
     const onChangeText = (value: string) => {
 
         setFind(value)
-        setSearchParams(value)
+        setSearchParams({find:value})
 
 
         // делает студент
