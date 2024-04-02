@@ -30,22 +30,31 @@ const HW14 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<string[]>([])
 
+
     const sendQuery = (value: string) => {
         setLoading(true)
+
         getTechs(value)
             .then((res) => {
+                if (res && res.data) {
+                    setTechs(res.data.techs)
+                }
+                // setTechs(res)
                 // делает студент
 
                 // сохранить пришедшие данные
 
                 //
+                setFind('')
+                setLoading(false)
             })
     }
 
     const onChangeText = (value: string) => {
         setFind(value)
-        // делает студент
+        setSearchParams(value)
 
+        // делает студент
         // добавить/заменить значение в квери урла
         // setSearchParams(
 
