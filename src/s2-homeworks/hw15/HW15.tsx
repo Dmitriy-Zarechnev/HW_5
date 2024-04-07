@@ -47,24 +47,35 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: any) => {
+    useEffect(() => {
+        const params = Object.fromEntries(searchParams)
+        console.log(params)
+        sendQuery({page: +params.page | page, count: +params.count | count, sort})
+        setPage(+params.page || 1)
+        setCount(+params.count || 4)
+    }, [])
+
+
+    const sendQuery = (params: ParamsType) => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                if (res && res.data) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
+                setLoading(false)
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
+        setPage(newPage)
+        setCount(newCount)
+        sendQuery({sort, page: newPage, count: newCount})
 
         // setPage(
         // setCount(
-
+        //setSearchParams({params:{sort, page:newPage, count: newCount }})
         // sendQuery(
         // setSearchParams(
 
@@ -83,12 +94,6 @@ const HW15 = () => {
         //
     }
 
-    useEffect(() => {
-        const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
-        setPage(+params.page || 1)
-        setCount(+params.count || 4)
-    }, [])
 
     const mappedTechs = techs.map(t => (
         <div key={t.id} className={s.row}>
