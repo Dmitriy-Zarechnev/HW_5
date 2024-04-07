@@ -1,12 +1,13 @@
 import React from 'react'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
-import FilterListIcon from '@mui/icons-material/FilterList'
+import FilterAltIcon from '@mui/icons-material/FilterAlt'
+import s from '../../HW15.module.css'
 
 // добавить в проект иконки и импортировать
 const downIcon = ArrowDropDownIcon
 const upIcon = ArrowDropUpIcon
-const noneIcon = FilterListIcon
+const noneIcon = FilterAltIcon
 
 export type SuperSortPropsType = {
     id?: string
@@ -47,18 +48,11 @@ const SuperSort: React.FC<SuperSortPropsType> = (
             : noneIcon
 
     return (
-        <span
+        <span className={s.spanSort}
             id={id + '-sort-' + value}
             onClick={onChangeCallback}
         >
-            {/*сделать иконку*/}
-            {/*<img*/}
-            {/*    id={id + '-icon-' + sort}*/}
-            {/*    src={icon}*/}
-            {/*    alt={'arrow-picture'}*/}
-            {/*/>*/}
-            <Icon id={id + '-icon-' + sort}/>
-
+        <Icon color={'secondary'} fontSize={'medium'} id={id + '-icon-' + sort}/>
         </span>
     )
 }

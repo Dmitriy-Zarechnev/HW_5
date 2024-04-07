@@ -36,6 +36,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = memo((
             <Pagination
                 id={id + '-pagination'}
                 sx={{
+                    flex:'1 1 auto'
                     // стили для Pagination // пишет студент
                 }}
                 page={page}
@@ -43,10 +44,12 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = memo((
                 onChange={onChangeCallback}
                 hideNextButton
                 hidePrevButton
+                color={'secondary'}
+                size={'large'}
             />
 
             <span className={s.text1}>
-                показать
+                Показать
             </span>
 
             <SuperSelect
